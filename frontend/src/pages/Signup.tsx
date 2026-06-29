@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Zap, Mail, Lock, User } from "lucide-react";
+import { getApiUrl } from "@/lib/api";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const handleSignup = async (e: React.FormEvent) => {
   }
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/auth/signup", {
+      const response = await fetch(getApiUrl("/auth/signup"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

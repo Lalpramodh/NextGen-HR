@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Zap, Mail, Lock } from "lucide-react";
+import { getApiUrl } from "@/lib/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Login = () => {
   e.preventDefault();
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/auth/login", {
+      const response = await fetch(getApiUrl("/auth/login"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
